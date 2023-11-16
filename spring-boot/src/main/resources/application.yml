@@ -1,62 +1,8 @@
 server:
-  port: 10987
-  servlet:
-    multipart:
-      enabled: true
-      # 上传文件总的最大值
-      max-request-size: 50MB
-      # 单个文件的最大值
-      max-file-size: 50MB
+  port: 8080
 
-spring:
-  mvc:
-    pathmatch:
-      matching-strategy: ant-path-matcher
-  application:
-    name: SpModelServer
-  datasource:
-    dynamic:
-      primary: master #设置默认的数据源或者数据源组,默认值即为master
-      strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
-      lazy: true #默认false非懒启动，系统加载到数据源立即初始化连接池
-      datasource:
-        master:
-          url: jdbc:mysql://192.168.10.15:32096/sp-model?useUnicode=true&characterEncoding=utf-8&rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai
-          username: root
-          password: zdjc@Admin123
-          driver-class-name: com.mysql.cj.jdbc.Driver
-
-  # Redis配置
-  redis:
-    database: 3
-    host: 192.168.10.14
-    port: 6379
-    password: zdjc@Admin
-    timeout: 5000
-    pool:
-      max-active: 8
-      max-idle: 10
-      max-wait: 1ms
-      min-idle: 5
 
 # 日志配置
 logging:
   level:
-    com.zcloud.veight.model: debug
-
-# 回调服务，如果不传，默认使用 本机ip:服务端口/python/call-back
-#callback:
-#  ip: 172.16.18.222
-#  port: 10987
-#  url: /python/call-back
-
-# 放行
-zd:
-  framework:
-    exclude:
-      resouce-path:
-        - /*/*.html===get
-        - /*/actuator/**===get
-        - /*/swagger-resources===get
-        - /*/v2/api-docs===get
-        - /*/webjars/**===get
+    io.github.monster.*: debug
