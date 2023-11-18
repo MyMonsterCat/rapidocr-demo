@@ -2,8 +2,8 @@ package io.github.mymonstercat.controller;
 
 import com.benjaminwan.ocrlibrary.OcrResult;
 import io.github.monster.ocr.InferenceEngine;
-import io.github.monster.ocr.Model;
 import io.github.monster.ocr.config.ParamConfig;
+import io.github.mymonstercat.Model;
 import lombok.SneakyThrows;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

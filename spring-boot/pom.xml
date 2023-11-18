@@ -34,8 +34,7 @@
 
         <dependency>
             <groupId>io.github.mymonstercat</groupId>
-            <artifactId>rapidocr</artifactId>
-            <version>0.0.5</version>
+            <artifactId>rapidocr-onnx-platform</artifactId>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>

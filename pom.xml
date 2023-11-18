@@ -19,6 +19,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.github.mymonstercat</groupId>
+                <artifactId>rapidocr-ncnn-platform</artifactId>
+                <version>0.0.5</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.mymonstercat</groupId>
+                <artifactId>rapidocr-onnx-platform</artifactId>
+                <version>0.0.5</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 
 </project>

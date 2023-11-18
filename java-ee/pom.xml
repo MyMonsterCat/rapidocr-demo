@@ -20,9 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>io.github.mymonstercat</groupId>
-            <artifactId>rapidocr</artifactId>
-            <version>0.0.5</version>
-            <scope>compile</scope>
+            <artifactId>rapidocr-onnx-platform</artifactId>
         </dependency>
     </dependencies>
 

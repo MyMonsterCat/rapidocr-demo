@@ -2,7 +2,6 @@ package io.github.mymonstercat;
 
 import com.benjaminwan.ocrlibrary.OcrResult;
 import io.github.monster.ocr.InferenceEngine;
-import io.github.monster.ocr.Model;
 import io.github.monster.ocr.config.ParamConfig;
 
 import java.io.File;
