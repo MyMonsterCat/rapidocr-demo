@@ -19,6 +19,26 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!--  打包命令：mvn clean package -P linux-x86_64 -Dlinux-build  -->
+    <profiles>
+        <profile>
+            <id>linux-x86_64</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                    <arch>amd64</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>io.github.mymonstercat</groupId>
+                    <artifactId>rapidocr-onnx-linux-x86_64</artifactId>
+                    <version>0.0.5</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
