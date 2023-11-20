@@ -1,8 +1,8 @@
 package io.github.mymonstercat;
 
 import com.benjaminwan.ocrlibrary.OcrResult;
-import io.github.monster.ocr.InferenceEngine;
-import io.github.monster.ocr.config.ParamConfig;
+import io.github.mymonstercat.ocr.InferenceEngine;
+import io.github.mymonstercat.ocr.config.ParamConfig;
 
 import java.io.File;
 
