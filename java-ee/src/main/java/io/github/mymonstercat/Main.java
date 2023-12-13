@@ -2,6 +2,7 @@ package io.github.mymonstercat;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.IoUtil;
+import cn.hutool.core.io.resource.ResourceUtil;
 import com.benjaminwan.ocrlibrary.OcrResult;
 import com.benjaminwan.ocrlibrary.TextBlock;
 import io.github.mymonstercat.ocr.InferenceEngine;
@@ -12,6 +13,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -23,8 +25,8 @@ public class Main {
         paramConfig.setDoAngle(true);
         paramConfig.setMostAngle(true);
         InferenceEngine engine = InferenceEngine.getInstance(Model.ONNX_PPOCR_V3);
-        // 开始识别
-        OcrResult ocrResult = engine.runOcr(getResourcePath("/images/test.png"), paramConfig);
+        String savePath = save("/images/system.png");
+        OcrResult ocrResult = engine.runOcr(savePath, paramConfig);
         System.out.println(ocrResult.getStrRes().trim());
     }
 
@@ -32,7 +34,7 @@ public class Main {
     public void NcnnTest() {
         InferenceEngine engine = InferenceEngine.getInstance(Model.NCNN_PPOCR_V3);
         // 使用NCNN引擎进行识别
-        OcrResult NCNNResult = engine.runOcr(getResourcePath("/images/40.png"), ParamConfig.getDefaultConfig());
+        OcrResult NCNNResult = engine.runOcr(getResourcePath("/images/40.png"));
         Assert.assertEquals("40", NCNNResult.getStrRes().trim().toString());
     }
 
@@ -120,5 +122,14 @@ public class Main {
 
     private static String getResourcePath(String path) {
         return new File(Main.class.getResource(path).getFile()).toString();
+    }
+
+    private static String save(String path) {
+        String tempDir = System.getProperty("java.io.tmpdir");
+        String result = tempDir + "ocrJava/img.png";
+        InputStream stream = Main.class.getResourceAsStream(path);
+        File file = FileUtil.writeFromStream(stream, result);
+        file.deleteOnExit();
+        return result;
     }
 }

@@ -14,10 +14,9 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <rapidocr.version>0.0.6</rapidocr.version>
     </properties>
 
     <!--  打包命令：mvn clean package -P linux-x86_64 -Dlinux-build  -->
@@ -34,7 +33,7 @@
                 <dependency>
                     <groupId>io.github.mymonstercat</groupId>
                     <artifactId>rapidocr-onnx-linux-x86_64</artifactId>
-                    <version>${rapidocr.version}</version>
+                    <version>1.2.2</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -44,13 +43,18 @@
         <dependencies>
             <dependency>
                 <groupId>io.github.mymonstercat</groupId>
+                <artifactId>rapidocr</artifactId>
+                <version>0.0.7</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.mymonstercat</groupId>
                 <artifactId>rapidocr-ncnn-platform</artifactId>
-                <version>${rapidocr.version}</version>
+                <version>0.0.7</version>
             </dependency>
             <dependency>
                 <groupId>io.github.mymonstercat</groupId>
                 <artifactId>rapidocr-onnx-platform</artifactId>
-                <version>${rapidocr.version}</version>
+                <version>0.0.7</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
